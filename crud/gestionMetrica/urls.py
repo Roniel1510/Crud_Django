@@ -5,6 +5,12 @@ urlpatterns = [
     path('',views.home),
     path('registrarCriterio/',views.registrarCriterio),
     path('eliminarCriterio/<codigo>', views.eliminarCriterio),
-     path('editarCriterio/<codigo>', views.editarCriterio),
-     path('editarCriterio2/', views.editarCriterio2)
+    path('editarCriterio/<codigo>', views.editarCriterio),
+    path('editarCriterio2/', views.editarCriterio2),
+     
+    path('gestionIndicador/', views.gestionIndicador),
+    path('registrarIndicador/',views.registrarIndicador),
+    path('eliminarIndicador/<codigo>', views.eliminarIndicador),
+    path('editarIndicador/<codigo>', views.editarIndicador),
+    path('editarIndicador2/', views.editarIndicador2),
 ]   
