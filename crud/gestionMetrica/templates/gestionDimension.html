@@ -1,12 +1,12 @@
 {% extends "./base.html" %}
-{% block  title %}Gestion de Indicadores{% endblock  %}
+{% block  title %}Gestion de Dimensiones{% endblock  %}
 {% block body %}
 <div class="row">
     <div class="col-md-6 col-lg-4 col-xl-4 col-sm-12">
-         <h2>Gestion de Indicadores.</h2> 
+         <h2>Gestion de Dimensiones.</h2> 
          <div class="card">
            <div class="card-body">
-            <form action="/registrarIndicador/"method="POST">{%csrf_token %}
+            <form action="/registrarDimension/"method="POST">{%csrf_token %}
                 <small>Codigo</small>
                 <div class="form-group">
                     
@@ -35,7 +35,7 @@
     </div>
     <div class="col-md-6 col-lg-8 col-xl-8 col-sm-12">
            <h1>
-            Listado de Indicadores
+            Listado de Dimensiones.
            </h1> 
            <div class="table-responsive py-4">
             <table class="table table-striped">
@@ -49,14 +49,14 @@
                    </tr>
                </thead>   
                 <tbody>
-                     {% for c in indicadorList %}
+                     {% for c in dimensionList %}
                      <tr>
                         <td>{{c.codigo}}</td>
                         <td>{{c.nombre}}</td>
                         <td>{{c.descripcion}}</td>
                         <td>{{c.peso}}</td>
-                        <td><a href="/editarIndicador/{{c.codigo}}"class="btn btn-info" >Editar</a></td>
-                        <td><a href="/eliminarIndicador/{{c.codigo}}"class="btn btn-danger">Eliminar</a></td>
+                        <td><a href="/editarDimension/{{c.codigo}}"class="btn btn-info" >Editar</a></td>
+                        <td><a href="/eliminarDimension/{{c.codigo}}"class="btn btn-danger">Eliminar</a></td>
                      </tr>
                     {% endfor %} 
                 </tbody>

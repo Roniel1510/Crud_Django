@@ -6,6 +6,7 @@ def home(request):
     criteriosMedidasList=criteriomedida.objects.all()
     return render(request, 'gestionCriterioMedida.html', {"criteriosMedidasList":criteriosMedidasList})#se le pasa por parametro {"criteriosMedidasList":criteriosMedidasList}
 
+#Criterio
 def registrarCriterio(request):
     codigo=request.POST['txtcodigo']
     nombre=request.POST['txtnombre']
@@ -34,7 +35,7 @@ def editarCriterio2(request):
     criteriomedidas.peso=peso
     criteriomedidas.save()
     return redirect('/')
-
+#Indicador
 def gestionIndicador(request):
     indicadorList=indicador.objects.all()
     return render(request, 'gestionIndicador.html', {"indicadorList":indicadorList})#se le pasa por parametro {"criteriosMedidasList":criteriosMedidasList}    
@@ -67,3 +68,37 @@ def editarIndicador2(request):
     Indicador.peso=peso
     Indicador.save()
     return redirect('/gestionIndicador/')
+
+#Dimension
+def gestionDimension(request):
+    dimensionList=dimension.objects.all()
+    return render(request, 'gestionDimension.html', {"dimensionList":dimensionList})#se le pasa por parametro {"criteriosMedidasList":criteriosMedidasList}    
+
+def registrarDimension(request):
+    codigo=request.POST['txtcodigo']
+    nombre=request.POST['txtnombre']
+    descripcion=request.POST['txtdescripcion']
+    peso=request.POST['txtpeso']
+    
+    DimensionL=dimension.objects.create(
+        codigo=codigo,nombre=nombre,descripcion=descripcion,peso=peso)
+    return redirect('/gestionDimension/')
+def eliminarDimension(request,codigo):
+    Dimension=dimension.objects.get(codigo=codigo)
+    Dimension.delete()
+    return redirect('/gestionDimension/')
+def editarDimension(request,codigo):
+    Dimension=dimension.objects.get(codigo=codigo)
+    return render(request,"editarDimension.html",{"dimension":Dimension})
+def editarDimension2(request):
+    codigo=request.POST['txtcodigo']
+    nombre=request.POST['txtnombre']
+    descripcion=request.POST['txtdescripcion']
+    peso=request.POST['txtpeso']
+    
+    Dimension=dimension.objects.get(codigo=codigo)
+    Dimension.nombre=nombre
+    Dimension.descripcion=descripcion
+    Dimension.peso=peso
+    Dimension.save()
+    return redirect('/gestionDimension/')

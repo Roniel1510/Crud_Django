@@ -1,30 +1,30 @@
 {% extends "./base.html" %}
-{% block title %}Editar Criterio de medida{% endblock title %}
+{% block title %}Editar Dimension{% endblock title %}
 {% block body %}
 <div class="row">
     <div class="col-md-4 offset-md-4">
-        <h1>Edite el Indicador.</h1>
+        <h1>Edite la Dimension.</h1>
         <div class="card">
             <div class="card-body">
-             <form action="/editarIndicador2/"method="POST">{%csrf_token %}
+             <form action="/editarDimension2/"method="POST">{%csrf_token %}
                  <small>Codigo</small>
                  <div class="form-group">
                      
-                     <input type="text"id="txtcodigo" value="{{indicador.codigo}}" name="txtcodigo"class="form-contol" placeholder="codigo" minlength="3" maxlength="3" required readonly>
+                     <input type="text"id="txtcodigo" value="{{dimension.codigo}}" name="txtcodigo"class="form-contol"  minlength="3" maxlength="3" required readonly>
                  </div>
                  <small>Nombre</small>
                  <div class="form-group">
                      
-                     <input type="text"value="{{indicador.nombre}}"name="txtnombre"id="txtnombre"class="form-contol" placeholder="nombre" maxlength="10" required>
+                     <input type="text"value="{{dimension.nombre}}"name="txtnombre"id="txtnombre"class="form-contol"  maxlength="10" required>
                  </div>
                  <small>Descripcion</small>  
                  <div class="form-group">
                                                     
-                     <input type="text"value="{{indicador.descripcion}}" name="txtdescripcion"id="txtdescripcion"class="form-contol" placeholder="descripcion" maxlength="300" required>
+                     <input type="text"value="{{dimension.descripcion}}" name="txtdescripcion"id="txtdescripcion"class="form-contol" maxlength="300" required>
                  </div>
                  <small>Valor</small>
                  <div class="form-group">
-                     <input type="number"id="txtpeso"value="{{indicador.peso}}" name="txtpeso"class="form-contol" placeholder="1" maxlength="5" required>
+                     <input type="number"id="txtpeso"value="{{dimension.peso}}" name="txtpeso"class="form-contol"  maxlength="5" required>
                  </div>
                   <div class="form-group">
                      <button type="submit"class="mt-1 btn btn-success btn-block text-white" >Guardar</button>
